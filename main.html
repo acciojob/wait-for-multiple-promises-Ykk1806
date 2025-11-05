@@ -21,8 +21,8 @@
         </tr>
       </thead>
       <tbody id="output">
-        <tr>
-            <td colspan="2" id="loading">Loading...</td>
+        <tr id="loading">
+            <td colspan="2" >Loading...</td>
         </tr>
       </tbody>
     </table>
@@ -45,7 +45,7 @@
       Promise.all([t1,t2,t3])
       .then((res)=>{
         console.log(res)
-        loading.style.display='none';
+        loading.remove()//removing the loading row
         res.forEach((ele)=>{
             let row=document.createElement('tr');
             let td1=document.createElement('td');
@@ -72,7 +72,7 @@
        let td2=document.createElement('td');
 
        th.innerText='Total';
-       td2.innerText=maxTime;
+       td2.innerText=maxTime.toFixed(3);
        row.append(th,td2);
        output.appendChild(row)
 
